@@ -1,0 +1,104 @@
+name: audiobooks
+description: A new Flutter project.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # A powerful package for internationalization and localization.
+  intl: ^0.19.0
+
+  # Provides a comprehensive set of Cupertino (iOS-style) icons.
+  cupertino_icons: ^1.0.2
+
+  # Efficiently downloads, caches, and displays images from the web.
+  cached_network_image: ^3.3.1
+
+  # A simple service locator for dependency injection in Flutter apps.
+  get_it: ^7.6.7
+
+  # A powerful HTTP client for handling REST API requests.
+  dio: ^5.4.1
+
+  # A simple package for making HTTP requests.
+  http: ^0.13.3
+
+  # State management library that helps manage states in a predictable way.
+  flutter_bloc: ^8.1.3
+
+  # Functional programming package for handling optional and either types.
+  dartz: ^0.10.1
+
+  # Simplifies equality comparisons and state management in Flutter.
+  equatable: ^2.0.5
+
+  # A plugin for SQLite database management, allowing local storage of data.
+  sqflite: ^2.3.2
+
+  # Stores key-value pairs in persistent storage.
+  shared_preferences: ^2.3.2
+
+  # Provides the correct paths to store files in different platforms.
+  path_provider: ^2.1.4
+
+  # A utility package for manipulating file paths.
+  path: ^1.9.0
+
+  # A comprehensive audio playback and service management library.
+  audio_service: ^0.18.15
+
+  # A feature-rich package for audio playback in Flutter apps.
+  just_audio: ^0.9.39
+
+  # A simple package to check internet connectivity status.
+  internet_connection_checker: ^1.0.0+1
+
+  # Provides access to network connectivity information.
+  connectivity_plus: ^5.0.2
+
+  # A widget for displaying an audio or video progress bar.
+  audio_video_progress_bar: ^2.0.3
+
+  # Adds a customizable tap animation effect for widgets.
+  zoom_tap_animation: ^1.1.0
+
+  # A package for displaying toast notifications in Flutter apps.
+  fluttertoast: ^8.0.8
+
+  # A package for creating drag-and-drop reorderable lists.
+  drag_and_drop_lists: ^0.4.1
+
+  # A widget that adds fading effects at the edges of a scroll view.
+  fading_edge_scrollview: ^4.1.1
+
+  # A package for launching URLs in the browser, SMS, or email.
+  url_launcher: ^6.1.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+  build_runner: ^2.4.6
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/categories/astronomy/
+    - assets/categories/biographies/
+    - assets/categories/business/
+    - assets/categories/crime_mystery_thriller/
+    - assets/categories/economics/
+    - assets/categories/hindi/
+    - assets/categories/romance/
+    - assets/categories/short_stories/
+    - assets/categories/popular/
+    - assets/
