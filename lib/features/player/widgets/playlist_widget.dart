@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:audio_service/audio_service.dart';
 import 'package:audiobooks/core/dependency_injection.dart';
-import 'package:audiobooks/core/widgets/custom_toast.dart';
 import 'package:audiobooks/core/utils/constants.dart';
 import 'package:audiobooks/core/utils/functions.dart';
+import 'package:audiobooks/core/widgets/custom_toast.dart';
 import 'package:audiobooks/features/player/page_manager.dart';
 import 'package:fading_edge_scrollview/fading_edge_scrollview.dart';
 import 'package:flutter/cupertino.dart';
@@ -157,7 +157,7 @@ class _PlaylistState extends State<Playlist> {
                 child: Column(
                   children: [
                     SizedBox(
-                      height: 400,
+                      height: 380,
                       child: FadingEdgeScrollView.fromScrollView(
                         child: GridView.builder(
                           controller: ScrollController(),
