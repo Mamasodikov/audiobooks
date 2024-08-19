@@ -1,14 +1,14 @@
 import 'dart:io';
 
 import 'package:audio_service/audio_service.dart';
-import 'package:audiobooks/core/helper/custom_toast.dart';
+import 'package:audiobooks/core/widgets/custom_toast.dart';
 import 'package:audiobooks/core/utils/constants.dart';
-import 'package:audiobooks/feature/home/data/datasources/home_local_datasource.dart';
-import 'package:audiobooks/feature/home/data/models/book_model.dart';
-import 'package:audiobooks/feature/player/page_manager.dart';
+import 'package:audiobooks/features/home/data/datasources/home_local_datasource.dart';
+import 'package:audiobooks/features/home/data/models/book_model.dart';
+import 'package:audiobooks/features/player/page_manager.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 Future<void> deleteFileFromInternalStorage(String fileName,
     {bool withPath = true}) async {
@@ -150,4 +150,14 @@ Future<bool?> showAlertText(BuildContext context, String question) async {
           ],
         );
       });
+}
+
+// Function to launch a URL
+Future<void> launchCustomUrl(Uri uri) async {
+  try {
+    await launchUrl(uri);
+  } catch (e) {
+    print(e);
+    CustomToast.showToast('This action is not supported');
+  }
 }

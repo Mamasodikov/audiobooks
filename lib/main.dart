@@ -4,8 +4,8 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'core/di.dart' as di;
-import 'feature/app.dart';
+import 'core/dependency_injection.dart' as di;
+import 'features/app.dart';
 
 void main() async {
   runZonedGuarded(() async {
