@@ -55,7 +55,7 @@ class DBHelper {
         "books",
         book.toMap(),
         conflictAlgorithm:
-        ConflictAlgorithm.replace, // Replace if the same id exists
+            ConflictAlgorithm.replace, // Replace if the same id exists
       );
     } catch (e) {
       debugPrint('Error adding to playlist: $e');
@@ -115,37 +115,34 @@ class DBHelper {
   }
 }
 
-
 abstract class HomeLocalDatasource {
-  Future<dynamic> addToPlaylist();
-  Future<dynamic> removeFromPlaylist();
-  Future<dynamic> getPlaylist();
-  Future<dynamic> getBookById();
+  Future<void> addToPlaylist();
+
+  Future<void> removeFromPlaylist();
+
+  Future<List<Book>> getPlaylist();
+
+  Future<Book?> getBookById();
 }
 
-class HomeLocalDatasourceImpl extends HomeLocalDatasource{
+class HomeLocalDatasourceImpl extends HomeLocalDatasource {
   @override
-  Future addToPlaylist() {
-    // TODO: implement addToPlaylist
-    throw UnimplementedError();
+  Future<void> addToPlaylist() {
+    return addToPlaylist();
   }
 
   @override
-  Future getBookById() {
-    // TODO: implement getBookById
-    throw UnimplementedError();
+  Future<Book?> getBookById() {
+    return getBookById();
   }
 
   @override
-  Future getPlaylist() {
-    // TODO: implement getPlaylist
-    throw UnimplementedError();
+  Future<List<Book>> getPlaylist() {
+    return getPlaylist();
   }
 
   @override
-  Future removeFromPlaylist() {
-    // TODO: implement removeFromPlaylist
-    throw UnimplementedError();
+  Future<void> removeFromPlaylist() {
+    return removeFromPlaylist();
   }
-  
 }

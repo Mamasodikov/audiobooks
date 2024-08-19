@@ -21,5 +21,4 @@ class HomeRepositoryImpl extends HomeRepository {
     // TODO: implement downloadAndAddPlaylist
     throw UnimplementedError();
   }
-
 }
