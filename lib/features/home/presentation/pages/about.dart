@@ -7,7 +7,6 @@ class AboutPage extends StatefulWidget {
 }
 
 class _AboutPageState extends State<AboutPage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +27,7 @@ class _AboutPageState extends State<AboutPage> {
               ),
               SizedBox(height: 20),
               Text(
-                'Hi 👋, I am Muhammad Aziz. This app is open sourced for educational purposes, so you can get use of it :)\n App might be little buggy, cuz it was done in just 2 days for test assignment, feel free to open an issue in repo 🫡\n\n',
+                'Hi 👋, I am Muhammad Aziz. This app is open sourced for educational purposes, so you can get use of it :)\n App might be little buggy, cuz it was done in just 2 days for test assignment, feel free to open an issue in repo 🫡\n (Books are not actual books, presented only random sample audios due copyright)\n\n',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,

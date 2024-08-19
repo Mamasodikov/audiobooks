@@ -2,6 +2,8 @@
 
 Welcome to **UIC AudioBooks**—a Flutter project developed for testing task of UIC Group. This app offers a seamless experience for browsing, downloading, and listening to audiobooks, designed with user-friendly interfaces and robust performance.
 
+(Books are not actual books, presented only random sample audios due copyright, so don't judge it :)
+
 ## Developer
 
 **Muhammad Aziz Mamasodikov**
