@@ -11,6 +11,8 @@ import 'package:equatable/equatable.dart';
 part 'books_home_event.dart';
 part 'books_home_state.dart';
 
+/// Domain layer is not fully implemented yet for instant testing and possible changes of functions
+
 class BooksHomeBloc extends Bloc<BooksHomeEvent, BooksHomeState> {
   final NetworkInfo networkInfo;
   final Dio dio;

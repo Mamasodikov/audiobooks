@@ -1,5 +1,9 @@
 import 'package:audio_service/audio_service.dart';
 import 'package:audiobooks/features/home/data/datasources/home_local_datasource.dart';
+import 'package:audiobooks/features/home/data/datasources/home_remote_datasource.dart';
+import 'package:audiobooks/features/home/data/repositories/home_repository_impl.dart';
+import 'package:audiobooks/features/home/domain/repositories/home_repository.dart';
+import 'package:audiobooks/features/home/domain/usecases/u_book_detailed.dart';
 import 'package:audiobooks/features/home/presentation/bloc/book_detailed/book_detailed_bloc.dart';
 import 'package:audiobooks/features/home/presentation/bloc/books_home/books_home_bloc.dart';
 import 'package:audiobooks/features/player/audio_handler.dart';
@@ -35,7 +39,7 @@ Future<void> init() async {
   di.registerSingleton<AudioHandler>(await initAudioService());
 
   // page state
-  di.registerLazySingleton<PageManager>( () => PageManager());
+  di.registerLazySingleton<PageManager>(() => PageManager());
   await PageManager().init();
 
   ///Versioning
@@ -69,30 +73,32 @@ Future<void> init() async {
   );
 
   di.registerFactory(
-        () => BookDetailedBloc(
+    () => BookDetailedBloc(
       dio: di(),
-      networkInfo: di(), pageManager: di(),
+      networkInfo: di(),
+      pageManager: di(),
+      uBookDetailedDownload: di(),
     ),
   );
 
   ///Repositories
 
-  // di.registerLazySingleton<MainRepository>(() => MainRepositoryImpl(
-  //     mainRemoteDataSourcesImpl: di(),
-  //     mainLocalDataSourcesImpl: di(),
-  //     networkInfo: di(),
-  //     isarService: di()));
+  di.registerLazySingleton<HomeRepository>(() => HomeRepositoryImpl(
+      homeRemoteDatasourceImpl: di(),
+      homeLocalDatasourceImpl: di(),
+      networkInfo: di()));
 
   ///Use Cases
 
-  // di.registerLazySingleton(() => MainUsesCases(mainRepository: di()));
+  di.registerLazySingleton(() => UBookDetailedDownload(homeRepository: di()));
 
   ///Data sources
-  // di.registerLazySingleton<TaskRemoteDatasource>(
-  //         () => XXXRemoteDatasourceImpl(dio: di()));
-  //
-  // di.registerLazySingleton<TaskLocalDataSource>(
-  //         () => XXXLocalDataSourceImpl(isarService: di()));
+
+  //Home remote datasource
+  di.registerLazySingleton(() => HomeRemoteDatasourceImpl(
+      client: di(), database: di(), pageManager: di()));
+  //Home local datasource
+  di.registerLazySingleton(() => HomeLocalDatasourceImpl());
 
   debugPrint('=========== Dependency injection initializing finished ===========');
 }

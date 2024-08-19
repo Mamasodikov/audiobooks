@@ -13,12 +13,17 @@ class HomeRepositoryImpl extends HomeRepository {
 
   HomeRepositoryImpl(
       {required this.homeRemoteDatasourceImpl,
-        required this.homeLocalDatasourceImpl,
-        required this.networkInfo});
+      required this.homeLocalDatasourceImpl,
+      required this.networkInfo});
 
   @override
-  Future<Either<Failure, bool>> downloadAndAddPlaylist(Book? book) {
-    // TODO: implement downloadAndAddPlaylist
-    throw UnimplementedError();
+  Future<Either<Failure, bool>> downloadAndAddPlaylist(Book? book) async {
+    try {
+      final result =
+          await homeRemoteDatasourceImpl.downloadAndAddPlaylist(book ?? Book());
+      return Right(result);
+    } catch (e) {
+      return Left(Failure(errorMessage: e.toString()));
+    }
   }
 }

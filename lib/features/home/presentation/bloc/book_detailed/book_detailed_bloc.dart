@@ -3,28 +3,30 @@ import 'package:audiobooks/core/network/network_info.dart';
 import 'package:audiobooks/core/utils/functions.dart';
 import 'package:audiobooks/features/home/data/datasources/home_local_datasource.dart';
 import 'package:audiobooks/features/home/data/models/book_model.dart';
+import 'package:audiobooks/features/home/domain/usecases/u_book_detailed.dart';
 import 'package:audiobooks/features/player/page_manager.dart';
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
-import 'package:intl/intl.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:path/path.dart' as path;
 
 part 'book_detailed_event.dart';
 
 part 'book_detailed_state.dart';
 
-/// Domain layer is not implemented yet for instant testing and possible changes of functions
+/// Domain layer is not fully implemented yet for instant testing and possible changes of functions
 
 class BookDetailedBloc extends Bloc<BookDetailedEvent, BookDetailedState> {
   final NetworkInfo networkInfo;
   final Dio dio;
   final PageManager pageManager;
+  final UBookDetailedDownload uBookDetailedDownload;
 
   BookDetailedBloc(
-      {required this.pageManager, required this.networkInfo, required this.dio})
+      {required this.pageManager,
+      required this.networkInfo,
+      required this.dio,
+      required this.uBookDetailedDownload})
       : super(BookDetailedState.initial()) {
     on<LoadBookEvent>(getInitialState);
     on<DownloadBookEvent>(downloadAndAddPlaylist);
@@ -61,62 +63,18 @@ class BookDetailedBloc extends Bloc<BookDetailedEvent, BookDetailedState> {
       DownloadBookEvent event, Emitter<BookDetailedState> emit) async {
     if (await networkInfo.isConnected) {
       emit(state.copyWith(status: BookDetailedStatus.loading));
-      try {
-        DBHelper database = di();
-        var book = event.book ?? Book();
-        var audioBookUrl = book.audioUrl ?? '-';
 
-        // Extract only the filename from the URL, ignoring any query parameters
-        var uri = Uri.parse(audioBookUrl);
-        var fileName =
-            path.basename(uri.path); // Gets the filename, e.g., "sample3.mp3"
-
-        // Split the filename into name and extension
-        var nameWithoutExtension =
-            path.basenameWithoutExtension(fileName); // "sample3"
-        var extension = path.extension(fileName); // ".mp3"
-
-        var directory = await getApplicationDocumentsDirectory();
-        var now = DateTime.now();
-        var time = DateFormat('yyyy-MM-dd_HH-mm-ss').format(now);
-
-        // Create the new file path with date and time suffix
-        var filePath = path.join(
-            directory.path, "${nameWithoutExtension}_$time$extension");
-
-        var responseImage = await dio.download(audioBookUrl, filePath);
-
-        if (responseImage.statusCode == 200) {
-          try {
-            ///Change urlPath to the File path
-            final updatedBook = book.copyWith(audioUrl: filePath);
-
-            ///Add model to local DB
-            database.addToPlaylist(updatedBook);
-
-            ///Add audio to the playlist
-            pageManager.add(updatedBook.toMap());
-
-            emit(state.copyWith(
-                status: BookDetailedStatus.success, isDownloaded: true));
-          } catch (e) {
-            debugPrint(e.toString());
-            emit(state.copyWith(
-                status: BookDetailedStatus.failure, message: "Error"));
-          }
-        } else {
-          emit(state.copyWith(
-              status: BookDetailedStatus.failure, message: "Error"));
-        }
-      } on DioException catch (e) {
-        debugPrint(e.toString());
-        emit(state.copyWith(
-            status: BookDetailedStatus.failure, message: "Error"));
-      } catch (e) {
-        debugPrint(e.toString());
-        emit(state.copyWith(
-            status: BookDetailedStatus.failure, message: "Error"));
-      }
+      var result = await uBookDetailedDownload(event);
+      result.fold(
+          (failure) => {
+                emit(state.copyWith(
+                    status: BookDetailedStatus.failure,
+                    message: failure.errorMessage))
+              },
+          (r) => {
+                emit(state.copyWith(
+                    status: BookDetailedStatus.success, isDownloaded: r))
+              });
     } else {
       emit(state.copyWith(
           status: BookDetailedStatus.noInternet, message: "No internet"));
