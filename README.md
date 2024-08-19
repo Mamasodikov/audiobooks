@@ -1,6 +1,6 @@
 # UIC AudioBooks
 
-Welcome to **UIC AudioBooks** — a Flutter project developed for testing task of UIC Group. This app offers a seamless experience for browsing, downloading, and listening to audiobooks, designed with user-friendly interfaces and robust performance.
+Welcome to **UIC AudioBooks** — a Flutter project developed for testing task of the UIC Group. This app offers a seamless experience for browsing, downloading, and listening to audiobooks, designed with user-friendly interfaces and robust performance.
 
 ### ⚠️  (Books are not actual books, presented only random sample audios due to copyright, most audios are the same and may repeat, so don't judge it)
 
