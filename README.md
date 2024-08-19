@@ -1,14 +1,15 @@
 # UIC AudioBooks
 
-Welcome to **UIC AudioBooks**—a Flutter project developed for testing task of UIC Group. This app offers a seamless experience for browsing, downloading, and listening to audiobooks, designed with user-friendly interfaces and robust performance.
+Welcome to **UIC AudioBooks** — a Flutter project developed for testing task of UIC Group. This app offers a seamless experience for browsing, downloading, and listening to audiobooks, designed with user-friendly interfaces and robust performance.
 
-### ⚠️  (Books are not actual books, presented only random sample audios due copyright, so don't judge it)
+### ⚠️  (Books are not actual books, presented only random sample audios due to copyright, most audios are the same and may repeat, so don't judge it)
 
 ## Developer
 
 **Muhammad Aziz Mamasodikov**
 
 ---
+
 
 ## Features
 
@@ -43,9 +44,7 @@ Notification controllers on iOS and Android
 
 ## Video Walkthrough
 
-| Video                                                  | Description                                                                                       |
-|--------------------------------------------------------|---------------------------------------------------------------------------------------------------|
-| [![Watch the video](#)](#)                             | Walkthrough of the UIC AudioBooks app, showcasing its features, UI elements, and user experience. |
+[https://github.com/user-attachments/assets/d36f56ba-1409-4c64-acb7-468367672b73](https://github-production-user-asset-6210df.s3.amazonaws.com/64262986/359054065-d36f56ba-1409-4c64-acb7-468367672b73.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240819%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240819T093128Z&X-Amz-Expires=300&X-Amz-Signature=85bb5ed8516f4fb3fe00a9dcb25cc1b7ad89932dbba4ab1a8a794c6e4809a027&X-Amz-SignedHeaders=host&actor_id=64262986&key_id=0&repo_id=844220838)
 
 ---
 
