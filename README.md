@@ -29,8 +29,13 @@ Welcome to **UIC AudioBooks**—a Flutter project developed for testing task of 
 
 > Here's a glimpse of the UIC AudioBooks app in action:
 
-| ![Screenshot 1](#) | ![Screenshot 2](#) | ![Screenshot 3](#) |
+| ![photo_2024-08-19_11-29-06](https://github.com/user-attachments/assets/fcce3daa-a99d-43aa-924a-cfc86c1f43f7) | ![photo_2024-08-19_11-29-10](https://github.com/user-attachments/assets/5d0a926a-5871-46c2-bde7-9a530b2df934) | ![photo_2024-08-19_11-29-11](https://github.com/user-attachments/assets/a43206b8-2292-41fa-883f-c65fa4032ca4) |
 |--------------------|--------------------|--------------------|
+
+Notification controllers on iOS and Android
+
+|![photo_2024-08-19_11-29-09](https://github.com/user-attachments/assets/75e2533b-7401-4b21-b68d-5237b6ad5686)|![photo_2024-08-19_11-31-20](https://github.com/user-attachments/assets/6130fb6e-519e-420a-8110-ab1f083f096a)|
+|--------------------|--------------------|
 
 ---
 
