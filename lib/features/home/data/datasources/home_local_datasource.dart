@@ -3,40 +3,6 @@ import 'package:flutter/foundation.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
-abstract class HomeLocalDatasource {
-  Future<dynamic> addToPlaylist();
-  Future<dynamic> removeFromPlaylist();
-  Future<dynamic> getPlaylist();
-  Future<dynamic> getBookById();
-}
-
-class HomeLocalDatasourceImpl extends HomeLocalDatasource{
-  @override
-  Future addToPlaylist() {
-    // TODO: implement addToPlaylist
-    throw UnimplementedError();
-  }
-
-  @override
-  Future getBookById() {
-    // TODO: implement getBookById
-    throw UnimplementedError();
-  }
-
-  @override
-  Future getPlaylist() {
-    // TODO: implement getPlaylist
-    throw UnimplementedError();
-  }
-
-  @override
-  Future removeFromPlaylist() {
-    // TODO: implement removeFromPlaylist
-    throw UnimplementedError();
-  }
-  
-}
-
 ///DB Methods
 
 class DBHelper {
@@ -147,4 +113,39 @@ class DBHelper {
       return null;
     }
   }
+}
+
+
+abstract class HomeLocalDatasource {
+  Future<dynamic> addToPlaylist();
+  Future<dynamic> removeFromPlaylist();
+  Future<dynamic> getPlaylist();
+  Future<dynamic> getBookById();
+}
+
+class HomeLocalDatasourceImpl extends HomeLocalDatasource{
+  @override
+  Future addToPlaylist() {
+    // TODO: implement addToPlaylist
+    throw UnimplementedError();
+  }
+
+  @override
+  Future getBookById() {
+    // TODO: implement getBookById
+    throw UnimplementedError();
+  }
+
+  @override
+  Future getPlaylist() {
+    // TODO: implement getPlaylist
+    throw UnimplementedError();
+  }
+
+  @override
+  Future removeFromPlaylist() {
+    // TODO: implement removeFromPlaylist
+    throw UnimplementedError();
+  }
+  
 }
