@@ -6,8 +6,8 @@
 
     <application
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher"
-        android:label="audiobooks">
+        android:icon="@mipmap/launcher_icon"
+        android:label="UIC Audiobooks">
 
         <service
             android:name="com.ryanheise.audioservice.AudioService"

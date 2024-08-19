@@ -5,7 +5,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.3.0 <4.0.0'
+  sdk: '>=3.2.6 <4.0.0'
 
 dependencies:
   flutter:
@@ -86,6 +86,47 @@ dev_dependencies:
 
   flutter_lints: ^2.0.0
   build_runner: ^2.4.6
+
+  #Changing app & package name
+  rename: ^3.0.1
+  # rename setAppName --targets ios,android --value "YourAppName"
+
+  #Changing app icon
+  flutter_launcher_icons: ^0.13.1
+
+  #Creating native splash
+  flutter_native_splash: ^2.4.1
+
+# dart run flutter_launcher_icons:main
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: assets/icons/icon.png
+  image_path_ios: assets/icons/iconIOS.png
+  min_sdk_android: 21 # android min sdk min:16, default 21
+
+#  dart run flutter_native_splash:create
+flutter_native_splash:
+  image: assets/icons/icon.png
+  color: "#3A40D3"
+  android: true
+  ios: true
+  android_12:
+    color: "#3A40D3"
+    # The image parameter sets the splash screen icon image.  If this parameter is not specified,
+    # the app's launcher icon will be used instead.
+    # Please note that the splash screen will be clipped to a circle on the center of the screen.
+    # App icon with an icon background: This should be 960×960 pixels, and fit within a circle
+    # 640 pixels in diameter.
+    # App icon without an icon background: This should be 1152×1152 pixels, and fit within a circle
+    # 768 pixels in diameter.
+    image: assets/icons/iconAPI31.png
+
+    #App icon background color.
+    icon_background_color: "#3A40D3"
+
+    # The branding property allows you to specify an image used as branding in the splash screen.
+    #branding: assets/dart.png
 
 flutter:
 

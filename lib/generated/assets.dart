@@ -50,6 +50,9 @@ class Assets {
   static const String hindiBook6 = 'assets/categories/hindi/book6.jpg';
   static const String hindiBook7 = 'assets/categories/hindi/book7.jpg';
   static const String hindiBook8 = 'assets/categories/hindi/book8.jpg';
+  static const String iconsIcon = 'assets/icons/icon.png';
+  static const String iconsIconAPI31 = 'assets/icons/iconAPI31.png';
+  static const String iconsIconIOS = 'assets/icons/iconIOS.png';
   static const String popularBook1 = 'assets/categories/popular/book1.jpg';
   static const String popularBook2 = 'assets/categories/popular/book2.jpg';
   static const String popularBook3 = 'assets/categories/popular/book3.jpg';
