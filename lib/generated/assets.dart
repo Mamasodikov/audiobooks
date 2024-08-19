@@ -3,6 +3,7 @@ class Assets {
   Assets._();
 
   static const String assetsAudioBook = 'assets/audio_book.png';
+  static const String assetsVideo20240819141811 = 'assets/video_2024-08-19_14-18-11.mp4';
   static const String astronomyBook1 = 'assets/categories/astronomy/book1.jpg';
   static const String astronomyBook2 = 'assets/categories/astronomy/book2.jpg';
   static const String astronomyBook3 = 'assets/categories/astronomy/book3.jpg';
