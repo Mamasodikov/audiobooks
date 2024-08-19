@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:audio_service/audio_service.dart';
 import 'package:audiobooks/core/dependency_injection.dart';
 import 'package:audiobooks/core/utils/functions.dart';
+import 'package:flutter/foundation.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -36,7 +37,7 @@ class MyAudioHandler extends BaseAudioHandler {
     try {
       await _player.setAudioSource(_playlist);
     } catch (e) {
-      print("Error: $e");
+      debugPrint("Error: $e");
     }
   }
 
@@ -272,9 +273,9 @@ class MyAudioHandler extends BaseAudioHandler {
         // Find the index of the media item to be removed
         final index = list.indexWhere((item) => item.id == currentAudioId);
 
-        print("================= positionString: $positionString");
+        debugPrint("================= positionString: $positionString");
         if (index != -1) {
-          print("=== loadLastAudio: setting last position");
+          debugPrint("=== loadLastAudio: setting last position");
 
           Duration duration = Duration(
             hours: int.parse(positionString.split(":")[0]),
@@ -290,10 +291,10 @@ class MyAudioHandler extends BaseAudioHandler {
           return duration;
 
         } else {
-          print("=== loadLastAudio: couldn't find data or ID");
+          debugPrint("=== loadLastAudio: couldn't find data or ID");
         }
       } else {
-        print("=== loadLastAudio: no audio data");
+        debugPrint("=== loadLastAudio: no audio data");
       }
     }
   }

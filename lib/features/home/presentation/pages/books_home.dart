@@ -41,6 +41,7 @@ class _BooksHomePageState extends State<BooksHomePage> {
     return Scaffold(
       backgroundColor: cFirstColor,
       body: SafeArea(
+        bottom: false,
         child: Container(
           height: MediaQuery.of(context).size.height,
           child: Stack(

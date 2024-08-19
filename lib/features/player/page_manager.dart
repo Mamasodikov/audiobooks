@@ -46,7 +46,7 @@ class PageManager {
     DBHelper database = di();
     final List<Book> playlist = await database.getPlaylist();
 
-    print("Playlist loaded from local DB...");
+    debugPrint("Playlist loaded from local DB...");
 
     // Convert List<Book> to List<Map<String, String>>
     final List<Map<String, String>> playlistAsMapList =
@@ -113,7 +113,7 @@ class PageManager {
       final positionString = position.toString();
 
       ///Save to prefs
-      print(
+      debugPrint(
           "ID: $currentAudioId\nIndex: $currentIndex\nPosition:$positionString");
 
 
@@ -123,7 +123,7 @@ class PageManager {
 
       if (existingIndex == null || existingPositionString == null) {
         // Write 0 index and 0 duration if earlier prefs values do not exist
-        print("ID: $currentAudioId\nIndex: 0\nPosition: 0:00:00.000000");
+        debugPrint("ID: $currentAudioId\nIndex: 0\nPosition: 0:00:00.000000");
 
         _prefs.setString('currentAudioId', currentAudioId);
         _prefs.setString('positionString', Duration.zero.toString());
@@ -131,7 +131,7 @@ class PageManager {
       } else {
         // Check if currentIndex and position are not zero before writing
         if (currentIndex != 0 || position.inMilliseconds != 0) {
-          print("ID: $currentAudioId\nIndex: $currentIndex\nPosition: $positionString");
+          debugPrint("ID: $currentAudioId\nIndex: $currentIndex\nPosition: $positionString");
 
           // Write actual values to prefs
           _prefs.setString('currentAudioId', currentAudioId);
@@ -246,7 +246,7 @@ class PageManager {
     try {
       _audioHandler.removeQueueItem(mediaItem);
     } catch (e) {
-      print(e);
+      debugPrint(e.toString());
     }
   }
 

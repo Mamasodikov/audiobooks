@@ -73,7 +73,7 @@ class _DraggableBottomSheetState extends State<DraggableBottomSheet> {
                   expand: true,
                   snap: true,
                   snapSizes: [
-                    190 / constraints.maxHeight,
+                    200 / constraints.maxHeight,
                     0.5,
                   ],
                   controller: _controller,
