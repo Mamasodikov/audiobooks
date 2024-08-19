@@ -17,7 +17,7 @@ Welcome to **UIC AudioBooks** — a Flutter project developed for testing task o
 - **Offline Access:** Download your favorite audiobooks and listen to them even when you're offline.
 - **Customizable Audio Player:** Control playback speed, create playlist, and enjoy a rich listening experience.
 - **Category Browsing:** Easily find audiobooks by browsing through well-organized categories.
-- **Progress Tracking:** Keep track of your listening progress across all your audiobooks.
+- **Progress Tracking:** Keep track of your listening progress across all your audiobooks. (not implemented yet, saves only last audio and position)
 
 ---
 
