@@ -16,6 +16,8 @@ part 'book_detailed_event.dart';
 
 part 'book_detailed_state.dart';
 
+/// Domain layer is not implemented yet for instant testing and possible changes of functions
+
 class BookDetailedBloc extends Bloc<BookDetailedEvent, BookDetailedState> {
   final NetworkInfo networkInfo;
   final Dio dio;
